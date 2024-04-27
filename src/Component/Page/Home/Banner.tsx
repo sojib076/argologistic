@@ -27,9 +27,9 @@ const Banner = () => {
 
             {/* threre services name  */}
 
-            <div className='w-[90%] mx-auto mb-10  lg:block hidden '>
-                <div className=' grid grid-cols-3 shadow-2xl shadow-black mt-[-10%] '>
-                    <div className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out ">
+            <div className='w-[90%] mx-auto mb-10   '>
+                <div className=' grid lg:grid-cols-3 grid-cols-1 shadow-2xl  mt-[-10%] '>
+                    <div className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out lg:border-b-0 border-b-8 border-blue-900 ">
                         <div className="py-16 px-10">
                          <img src={iconimage} alt="" className="w-20 h-20 mr-4"  />
                             <div>
