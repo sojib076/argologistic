@@ -1,8 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 :root {
-  font-family: poppins, sans-serif , Raleway, Montserrat,Akshar;
+  font-family: Aksha , sans-serif , poppins;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -12,7 +14,9 @@
 
  
 }
-body{ background-color: #F7F8FF;}
+body{ background-color: #F7F8FF;
+
+}
  
 
 
@@ -34,13 +38,13 @@ body{ background-color: #F7F8FF;}
 }
 
 .section-subtitle{
-  @apply text-[20px] leading-[20px]  font-[Akshar] font-semibold uppercase ;
+  @apply text-[20px] leading-[20px]  font-['Akshar'] font-semibold uppercase ;
 }
 .section-title{ 
-  @apply lg:text-[44px] font-bold lg:leading-[50px] py-3 text-3xl font-[Akshar]  ;
+  @apply lg:text-[44px] font-bold lg:leading-[50px] py-3 text-3xl font-['Akshar']  ;
 }
 .section-para{
-  @apply text-[18px] leading-[30px] py-3 ;
+  @apply text-[18px] leading-[30px] py-3 text-[#3E3F41] ;
 }
 
 .button{

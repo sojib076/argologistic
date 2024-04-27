@@ -27,12 +27,32 @@ const Habout = () => {
                     <h1 className='section-title text-[#3E3F41]'>
                         We Provide Logistics Services  Focused On Quality
                     </h1>
-                    <p className='text-justify my-3'> 
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    <p className='text-justify my-3 text-[#3E3F41] '>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
-                    <button className="bg-yellow-400 hover:bg-blue-400  button">
+                    <button className="bg-yellow-400 hover:bg-blue-400  button mb-5">
                         Read More
-                        </button>
+                    </button>
+                    {/* This */}
+
+                    <div className='h-[66px] bg-white shadow-2xl'>
+                        <div className='grid grid-cols-2  '>
+                            <div className="flex justify-center items-center p-3">
+                                <img src="https://freeiconshop.com/wp-content/uploads/edd/android-flat.png" alt="Icon" className="w-10 h-10 lg:mr-2" />
+                                <div>
+                                    <h1 className=" text-[#3E3F41] lg:text-[18px]  font-medium font-['Akshar'] ">We are the best</h1>
+                                </div>
+                            </div>
+                            <div className="flex justify-center items-center p-3">
+                                <img src="https://freeiconshop.com/wp-content/uploads/edd/android-flat.png" alt="Icon" className="w-10 h-10 lg:mr-2" />
+                                <div>
+                                    <h1 className=" text-[#3E3F41] lg:text-[18px] font-medium font-['Akshar'] ">We are the best</h1>
+                                </div>
+                            </div>
+
+            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
