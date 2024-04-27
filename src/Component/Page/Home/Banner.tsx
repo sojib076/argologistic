@@ -15,7 +15,7 @@ const Banner = () => {
                             Worldwide  Shipping and Professional Solutions
                         </h1>
                         <p className='lg:w-[60%] my-3 text-white text-justify'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum voluptas quam, maxime unde itaque earum magnam ab adipisci totam quibusdam, rem quae optio aperiam molestiae, facilis libero explicabo? Aut?</p>
-                        <button className="bg-yellow-400 hover:bg-blue-400 text-white font-bold w-40 h-10 rounded-md transition duration-300 ease-in-out lg:ml-0 ml-[20%]">
+                        <button className="bg-yellow-400 hover:bg-blue-400 ml-[20%] button lg:ml-0">
                             Button
                         </button>
 
@@ -57,12 +57,6 @@ const Banner = () => {
                         </div>
                     </div>
              
-
-
-
-
-
-
 
                 </div>
             </div>
