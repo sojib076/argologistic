@@ -31,6 +31,7 @@ const Header = () => {
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/about" >About us </Link>
+            <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/track" >About us </Link>
           </li>
           
 
@@ -44,6 +45,11 @@ const Header = () => {
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/about" >About us </Link>
+ 
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+            <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/track" > Track Your Package </Link>
+ 
           </li>
        
 
