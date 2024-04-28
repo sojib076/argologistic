@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhatWeDo = () => {
     return (
-        <div className='pt-[100px] pb-[50px]  bg-white'  >
+        <div className='pt-[100px] pb-[0px]  bg-white'  >
             <div>
                 <div>
                     <h6 className='section-subtitle text-center text-[#1141BE]'>
@@ -56,12 +56,31 @@ const WhatWeDo = () => {
                                 <p className=" text-[#3E3F41] text-[14px] w-[90%] mx-auto pb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam architecto alias odio facilis dignissimos voluptate obcaecati feos! Dolorem.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* the we are logistic  */}
+                <div className='we-banner  mt-[-5%] lg:h-[90vh] mx-auto py-10 '>
+                    <div className=" flex justify-between">
+                        <div className=''>
 
 
+                        </div>
+                        <div className=' mt-[10%] '>
 
+                            <h6 className='section-subtitle text-[#FFCD06] text-center'>
+                            We Are Logistics
 
+                            </h6>
+                            <h1 className='section-title w-[70%] text-white text-center mx-auto'> 
+                            Your guide to global logistics in World
+                            </h1>
+                           
+                         
+                        </div>
 
                     </div>
+
                 </div>
             </div>
         </div>

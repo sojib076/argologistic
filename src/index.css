@@ -23,9 +23,27 @@ body{ background-color: #F7F8FF;
 .bg-banner{
   background-image: url('./assets/bannership.jpg');
   background-size: cover;
+}
+.we-banner{
+  background-image: url('./assets/Hero-Image-1.jpg');
+  background-size: cover;
+ position:center;
  
+}
+.numberbg{
 
- 
+  
+  background-color: #1142bec2;
+  background-size: cover;
+  z-index: 1;
+}
+.color-overlay-number{
+
+  background-image: url('./assets/Counter-BG-Image-4-1.png');
+  background-size: cover;
+
+z-index: 10;
+  
 }
 .overlay {
  
@@ -37,14 +55,16 @@ body{ background-color: #F7F8FF;
     z-index: 1;
 }
 
+
+/* same tailwind code to same time */
 .section-subtitle{
-  @apply text-[20px] leading-[20px]  font-['Akshar'] font-semibold uppercase ;
+  @apply lg:text-[20px] text-[15px] leading-3 lg:leading-[20px]  font-['Akshar'] font-semibold uppercase ;
 }
 .section-title{ 
   @apply lg:text-[44px] font-bold lg:leading-[50px] py-3 text-3xl font-['Akshar']  ;
 }
 .section-para{
-  @apply text-[18px] leading-[30px] py-3 text-[#3E3F41] ;
+  @apply text-[18px] leading-[30px]  text-[#3E3F41] ;
 }
 
 .button{
