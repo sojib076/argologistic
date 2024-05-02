@@ -27,7 +27,6 @@ const routes=createBrowserRouter([
       {path: '/about', element:<About></About>},
       {path: '/track', element:<Tracking></Tracking>},
       {path: '/dashboard/adlogin', element:<Adlogin/>},
-     
     ]
   },
   {

@@ -1,45 +1,35 @@
 import React from 'react';
 import Header from '../Header/Header';
 import { Link, Outlet } from 'react-router-dom';
-import { FaHouse, FaUser,FaOutdent, FaBoxesPacking, FaDebian} from 'react-icons/fa6';
-
-
-
+import { FaHouse, FaUser } from 'react-icons/fa6';
+import { MdAddTask } from 'react-icons/md';
+import { CiLogout } from 'react-icons/ci';
 
 
 
 const DashboardLayout = () => {
 
-    const [isadmin , setIsAdmin] = React.useState(true);
-
     return (
         <div>
             <Header />
 
-            <div className='flex justify-normal bg '>
-                <div className="w-[72px] h-[100vh] p-5   shadow">
-                   {
-                     isadmin ? ( <div className="flex-col justify-between items-center flex gap-10">
-                     <div className="w-5 h-5 " >
-                         <Link to="/dashboard/"> <FaHouse /> </Link>
-                     </div>
-                     <div className="w-5 h-5 " >
-                         <Link to="/dashboard/admin"> <FaUser/> </Link>
-                     </div>
-                     <div className="w-5 h-5 " >
-                         <Link to="/dashboard/adorder"> <FaBoxesPacking /></Link>
-                     </div>
-                     {/* <div className="w-5 h-5 " >
-                         <Link to="/dashboard/details"> <FaDebian /></Link>
-                     </div> */}
-                     <div className="w-5 h-5 " >
-                         <> <FaOutdent/> </>
-                     </div>
-                     
-                 </div>) : " You are a seller " 
-                   }
+            <div className='flex   '>
+
+                <div className="w-[72px] h-[120vh]  p-5  shadow-xl     shadow-black ">
+                    <div className=" grid  grid-cols-1 gap-[100%] justify-between items-center  ">
+
+                        <Link to="/dashboard/" className="w-5 h-5  text-2xl" > <FaHouse /> </Link>
+
+                        <Link to="/dashboard/admin" className="w-5 h-5  text-2xl"> <FaUser /> </Link>
+
+                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl"> <MdAddTask /> </Link>
+
+                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl"> <CiLogout /></Link>
+                      
+                    </div>
+
                 </div>
-                <div className=' ml-[2%] p-5'>
+                <div className=' lg:ml-[1%] lg:p-5'>
                     <Outlet />
                 </div>
             </div>
