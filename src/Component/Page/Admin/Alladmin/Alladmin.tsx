@@ -29,14 +29,14 @@ const Alladmin = () => {
     }, []);
 
     return (
-        <table className="table-auto lg:w-[1080px] w-0 overflow-auto">
+        <table className="table-auto lg:w-[1080px] w-0 overflow-auto shadow-slate-500 shadow-xl font-['Akshar'] ">
             <thead>
-                <tr>
-                    <th className="px-4 py-2">Name</th>
-                    <th className="px-4 py-2">Price</th>
+                <tr className=''>
+                    <th className="px-4 py-2">Sender Name</th>
+                    <th className="px-4 py-2">Due </th>
                     <th className="px-4 py-2">Location</th>
-                    <th className="px-4 py-2">Buyer Name</th>
-                    <th className="px-4 py-2">Phone Number</th>
+                    <th className="px-4 py-2">Reciver Name</th>
+                    <th className="px-4 py-2">Reciver Number</th>
                 </tr>
             </thead>
             <tbody >

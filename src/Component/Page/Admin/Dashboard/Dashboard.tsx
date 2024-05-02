@@ -3,6 +3,7 @@ import Header from '../../../Header/Header';
 import { Link, Outlet } from 'react-router-dom';
 import { FaArrowAltCircleRight, FaSearch } from 'react-icons/fa';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
 
@@ -15,7 +16,8 @@ const Dashboard = () => {
     ReciverName: string,
     ReciverPhoneNumber: string,
     ReciverLocation: string,
-    status: string
+    status: string,
+    trcknumber: string
   }
 
 
@@ -40,8 +42,47 @@ const Dashboard = () => {
       })
   }
 
+  const handelDelivery = (id: string, Status: string) => {
+
+    if (Status === 'Cancel') {
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You want to cancel this order",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Cancel it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios.patch(`http://localhost:3000/api/v1/order/${id}`,
+            { status: Status })
+            .then((response) => {
+              handelSingleOrder(id);
+            })
+        }
+      })
+
+    } else {
+      axios.patch(`http://localhost:3000/api/v1/order/${id}`,
+        { status: Status })
+        .then((response) => {
+          handelSingleOrder(id);
+          Swal.fire({
+            icon: 'success',
+            title: `${Status} successfully`,
+            showConfirmButton: false,
+            timer: 1500
+          
+          })
+        })
+    }
+
+  }
+
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden font-["Akshar"]'>
 
       <div className='grid lg:grid-cols-3 grid-cols-1 lg:gap-10  '>
         <div className='lg:col-span-1'>
@@ -68,10 +109,12 @@ const Dashboard = () => {
                         Quick view
                       </button>
                     </Link>
+                    <h1 className={` text-white text-sm rounded-md p-2  
+                    ${product?.status === 'Cancel' ? 'bg-red-800' : 'bg-green-500'} `}>
+                      {product?.trcknumber}
 
-                    <button className='bg-green-500 text-white text-sm rounded-md p-2'>
-                      {product?.status}
-                    </button>
+
+                    </h1>
                   </div>
                 ))
               }
@@ -85,14 +128,26 @@ const Dashboard = () => {
             singleOrder ?
 
               <div>
-                <div className="lg:w-[100%]  border-neutral-300 border-2 p-3 pb-10  ">
-                  <div className='flex justify-between p-5 '>
-                    <h1 className='section-subtitle'> Details items </h1>
-                    <h1 className='bg-green-500 text-white text-sm rounded-md p-2'>
+                <div className="lg:w-[100%]  border-neutral-300 border-2 p-3 pb-10  rounded-3xl ">
+                  <div className='flex justify-between p-5 items-center '>
+                    <h1 className='section-subtitle'> Tracking Number </h1>
+                    <h1 className={`text-white text-sm rounded-md p-2
+                     ${singleOrder?.status === 'Cancel' ? 'bg-red-800' : 'bg-green-500'}
+                     `}>
+
+                      {
+                        singleOrder?.trcknumber
+                      }
+                    </h1>
+                    <h1 className={`text-white text-sm rounded-md p-2
+                     ${singleOrder?.status === 'Cancel' ? 'bg-red-800' : 'bg-green-500'}
+                     `}>
+
                       {
                         singleOrder?.status
                       }
                     </h1>
+
 
                   </div>
 
@@ -126,9 +181,34 @@ const Dashboard = () => {
                     </div>
 
                   </div>
-                  <div className=" lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
-                    <button className="text-green-500  font-bold  "  > Mark as Out for delivery </button>
-                  </div>
+
+                  {
+                    singleOrder.status === 'pending' &&
+                    (<div onClick={() => handelDelivery(singleOrder._id, 'Shipped')} className=" lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
+                      <button className="text-green-500  font-bold  "  > Order Processed</button>
+                    </div>)
+                  }
+                  {singleOrder.status === 'Shipped' &&
+
+                    <div onClick={() => handelDelivery(singleOrder._id, 'Out for Delivery')} className=" lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
+                      <button className="text-green-500  font-bold  "  > Out for Delivery </button>
+                    </div>
+                  }
+
+                  {singleOrder.status === 'Out for Delivery' &&
+
+                    <div onClick={() => handelDelivery(singleOrder._id, 'Delivery')} className=" lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
+                      <button className="text-green-500  font-bold  "  > Delivery</button>
+                    </div>
+
+                  }
+                  {singleOrder.status === 'Out for Delivery' &&
+
+                    <div onClick={() => handelDelivery(singleOrder._id, 'Cancel')} className=" lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
+                      <button className="text-green-500  font-bold  "  > Cancel </button>
+                    </div>
+                  }
+
                 </div>
 
               </div> : <div className='lg:p-20 '>
@@ -144,7 +224,7 @@ const Dashboard = () => {
 
 
 
-    </div>
+    </div >
   );
 };
 
