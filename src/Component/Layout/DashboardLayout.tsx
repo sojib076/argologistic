@@ -18,13 +18,13 @@ const DashboardLayout = () => {
                 <div className="w-[72px] h-[120vh]  p-5  shadow-xl     shadow-black ">
                     <div className=" grid  grid-cols-1 gap-[100%] justify-between items-center  ">
 
-                        <Link to="/dashboard/" className="w-5 h-5  text-2xl" > <FaHouse /> </Link>
+                        <Link to="/dashboard/" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition " > <FaHouse /> </Link>
 
-                        <Link to="/dashboard/admin" className="w-5 h-5  text-2xl"> <FaUser /> </Link>
+                        <Link to="/dashboard/admin" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <FaUser /> </Link>
 
-                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl"> <MdAddTask /> </Link>
+                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <MdAddTask /> </Link>
 
-                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl"> <CiLogout /></Link>
+                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <CiLogout /></Link>
                       
                     </div>
 

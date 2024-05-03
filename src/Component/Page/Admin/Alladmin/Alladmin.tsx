@@ -37,6 +37,7 @@ const Alladmin = () => {
                     <th className="px-4 py-2">Location</th>
                     <th className="px-4 py-2">Reciver Name</th>
                     <th className="px-4 py-2">Reciver Number</th>
+                    <th className="px-4 py-2"> Status</th>
                 </tr>
             </thead>
             <tbody >
@@ -47,7 +48,8 @@ const Alladmin = () => {
               <td className="border px-4 py-2">{product.SenderLocation}</td>
               <td className="border px-4 py-2">{product.ReciverName}</td>
               <td className="border px-4 py-2">{product.SenderNumber}</td>
-              <td className="border px-4 py-2"> <Link to={`/dashboard/details/${product?._id}`}> VIew Details </Link></td>
+              <td className= {`border px-4 py-2 ${product?.status === 'Cancel' ? 'bg-red-800' : 'bg-green-500'} `}>{product.status}</td>
+              <td className="border px-2 py-2  bg-blue-900 text-white hover:bg-yellow-500 hover:scale-125 ease-linear  transition "> <Link to={`/dashboard/details/${product?._id}`}>  Details </Link></td>
             
           </tr> 
                 ))}

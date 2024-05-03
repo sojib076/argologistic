@@ -22,7 +22,8 @@ const AdOrder = () => {
             ReciverPhoneNumber: e.target.phoneNumber.value,
             ReciverLocation: e.target.ReciverLocation.value,
             status: "pending",
-            trcknumber: `argo${Math.floor(Math.random() * 1000000)}`
+            trcknumber: `argo${Math.floor(Math.random() * 1000000)}`,
+            date: new Date().toLocaleDateString()
         };
 
         axios({
@@ -30,7 +31,6 @@ const AdOrder = () => {
             url: 'http://localhost:3000/api/v1/order/',
             data: Alldata,
         }).then((response) => {
-
             if (response) {
                 Swal.fire({
                     title: 'Order Added',
@@ -38,6 +38,8 @@ const AdOrder = () => {
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 })
+                // reset form
+                e.target.reset();
             }
         });
         ;
@@ -77,7 +79,8 @@ const AdOrder = () => {
                     <input type="text" id="ReciverLocation" name="ReciverLocation" className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
                 <button type="submit" className="
-                w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-400 hover:bg-blue-900 "
+                w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-400 hover:bg-blue-900 
+                 ease-linear  transition "
                 >Submit</button>
             </form>
         </div>

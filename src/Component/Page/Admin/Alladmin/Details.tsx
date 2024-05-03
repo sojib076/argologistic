@@ -1,8 +1,6 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { FaDeleteLeft } from 'react-icons/fa6';
-import { FiDelete } from 'react-icons/fi';
-import { LuDelete } from 'react-icons/lu';
+import React from 'react';
+
 import { MdDelete } from 'react-icons/md';
 import { Navigate, useLoaderData, useNavigate } from 'react-router-dom';
 
@@ -11,15 +9,17 @@ import Swal from 'sweetalert2';
 const Details: React.FC = () => {
 
     type Product = {
+        _id: string,
         SenderName: string,
-        SenderNumber: number,
-        Price: number,
+        SenderNumber: string,
+        Price: string,
         SenderLocation: string,
         ReciverName: string,
         ReciverPhoneNumber: string,
         ReciverLocation: string,
         status: string,
         trcknumber: string,
+        
     }
 
     const signleloaderdata = useLoaderData();
@@ -28,7 +28,7 @@ const Details: React.FC = () => {
 
     const handelupdate = (e) => {
         e.preventDefault();
-
+// this is for update
         const Alldata = {
             SenderName: e.target.name.value || productData?.SenderName,
             SenderNumber: e.target.buyerNumber.value || productData?.SenderNumber,
@@ -52,7 +52,10 @@ const Details: React.FC = () => {
         });
     }
 
+
+    // this is for delete
     const navigate = useNavigate();
+
     const handelDelete = (e) => {
         e.preventDefault();
         Swal.fire({
@@ -65,7 +68,6 @@ const Details: React.FC = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                navigate('/dashboard/admin')
                 axios({
                     method: 'delete',
                     url: `http://localhost:3000/api/v1/order/${productData?._id}`,
@@ -75,21 +77,37 @@ const Details: React.FC = () => {
                         text: "Your file has been deleted.",
                         icon: "success"
                     });
+                    navigate('/dashboard/admin')
+                   
                 });
             }
         });
 
     }
+    const handleCopy = () => {
+        // Create a temporary input element
+        const tempInput = document.createElement('input');
+        // Set its value to the tracking number text
+        tempInput.value = productData?.trcknumber;
+        // Append it to the body
+        document.body.appendChild(tempInput);
+        // Select the text inside the input
+        tempInput.select();
+        // Copy the selected text
+        document.execCommand('copy');
+        // Remove the temporary input element
+        document.body.removeChild(tempInput);
+      };
 
     return (
         <div>
 
             <div className=" w-[1080px] mx-auto p-6 bg-gray-400 rounded-lg shadow-md font-['Akshar']">
                 <div className='flex justify-between'>
-                    <h2 className="text-2xl font-semibold mb-4 font-['Akshar']  "> Update Your Order</h2>
-                    <h2 className="text-2xl font- mb-4"> Tracking Number : {productData?.trcknumber}</h2>
+                    <h2 className="text-2xl font-semibold mb-4 font-['Akshar']  border p-2 border-black rounded-2xl "> Update Your Order</h2>
+                    <h2 className="text-2xl font- mb-4 border-black border p-2 rounded-2xl cursor-pointer hover:hover:scale-90  ease-linear  transition " onClick={handleCopy}> Tracking Number : {productData?.trcknumber}</h2>
 
-                    <button className="text-4xl font-semibold mb-4 text-red-700" onClick={handelDelete}> <MdDelete /> </button>
+                    <button className="text-4xl font-semibold mb-4 text-red-900 hover:scale-125 ease-linear  transition  " onClick={handelDelete}> <MdDelete /> </button>
 
                 </div>
                 <form className="space-y-4" onSubmit={handelupdate}>
