@@ -7,30 +7,28 @@ import Swal from 'sweetalert2';
 
 const Dashboard = () => {
 
-  type Product = [
-    {
-      _id: string,
-      SenderName: string,
-      SenderNumber: number,
-      Price: number,
-      SenderLocation: string,
-      ReciverName: string,
-      ReciverPhoneNumber: string,
-      ReciverLocation: string,
-      status: string,
-      trcknumber: string
-    }
-  ]
+  type Product = {
+    _id: string,
+    SenderName: string,
+    SenderNumber: number,
+    Price: number,
+    SenderLocation: string,
+    ReciverName: string,
+    ReciverPhoneNumber: string,
+    ReciverLocation: string,
+    status: string,
+    trcknumber: string
+  }
 
 
-  const [allproduct, setAllproduct] = useState() as Product []
-  const [singleOrder, setSingleOrder] = useState() as Product []
+  const [allproduct, setAllproduct] = useState() as Product | any;
+  const [singleOrder, setSingleOrder] = useState() as Product | any;
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/v1/order/')
+    axios.get<Product[]>('http://localhost:3000/api/v1/order/')
       .then((response) => {
         const reversed = response.data.reverse();
-        setAllproduct(reversed) 
+        setAllproduct(reversed)
         console.log(reversed);
       })
       .catch((error) => {
