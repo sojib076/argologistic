@@ -21,28 +21,26 @@ const Dashboard = () => {
   }
 
 
-  const [allproduct, setAllproduct] = useState() as Product | any;
-  const [singleOrder, setSingleOrder] = useState() as Product | any;
+  const [allproduct, setAllproduct] = useState<Product[]>([]);
+  const [singleOrder, setSingleOrder] = useState<Product>();
 
   useEffect(() => {
-    axios.get<Product[]>('http://localhost:3000/api/v1/order/')
+    axios.get('http://localhost:3000/api/v1/order/')
       .then((response) => {
         const reversed = response.data.reverse();
-        setAllproduct(reversed)
         console.log(reversed);
+        setAllproduct(reversed)
+        
       })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, [singleOrder]);
+  }, [singleOrder]) 
 
 
-  const handelSingleOrder = (productid: string) => {
-    console.log(typeof productid);
-    axios.get(`http://localhost:3000/api/v1/order/${productid}`)
+  const handelSingleOrder = (productid: string)  => {
+   
+    axios.get<Product>(`http://localhost:3000/api/v1/order/${productid}`)
       .then((response) => {
-        setSingleOrder(response.data);
-
+        const result = response.data;
+        setSingleOrder(result)
       })
   }
 
@@ -109,9 +107,8 @@ const Dashboard = () => {
               </button>
             </div>
 
-
             {
-              allproduct?.length >= 0 ? allproduct.map((product: Product) => (
+              allproduct?.length>= 0 ? allproduct?.map((product: Product) => (
 
                 product.status !== 'Delivery' && product.status !== 'Cancel' &&
                 <div className='mt-5 bg-white shadow-2xl rounded-xl p-5 flex justify-between' key={product._id}>
@@ -221,7 +218,7 @@ const Dashboard = () => {
                 }
                 {singleOrder.status === 'Out for Delivery' &&
 
-                  <div onClick={() => handelDelivery(singleOrder._id, 'Cancel')} className=" hover:scale-90  cursor-pointer ease-linear  transition  lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
+                  <div onClick={() => handelDelivery(singleOrder?._id, 'Cancel')} className=" hover:scale-90  cursor-pointer ease-linear  transition  lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
                     <button className="text-green-500  font-bold   "  > Cancel </button>
                   </div>
                 }

@@ -7,13 +7,23 @@ import Swal from 'sweetalert2'
 
 const AdOrder = () => {
 
-
+ type FormData = {
+    SenderName: string,
+    SenderNumber: string,
+    Price: string,
+    SenderLocation: string,
+    ReciverName: string,
+    ReciverPhoneNumber: string,
+    ReciverLocation: string,
+    status: string,
+    trcknumber: string,
+    date: string
+ }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-
-        const Alldata = {
+        const Alldata :FormData = {
             SenderName: e.target.name.value,
             SenderNumber: e.target.buyerNumber.value,
             Price: e.target.price.value,
@@ -41,6 +51,13 @@ const AdOrder = () => {
                 // reset form
                 e.target.reset();
             }
+        }).catch((error) => {
+            console.log(error);
+            Swal.fire({
+                icon: 'info',
+                title: 'Server Under Maintenance',
+                text: 'Please try again Later!',
+            })
         });
         ;
     };

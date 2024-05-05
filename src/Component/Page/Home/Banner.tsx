@@ -1,10 +1,38 @@
 import React from 'react';
 
-const iconimage = './money.png'
+import icons from '../../../assets/truch.png';
+
+import icons2 from '../../../assets/storehouse.png';
+
+import icons3 from '../../../assets/delivery.png';
+
+
 
 const Banner = () => {
+
+    const allservices = [
+            {
+                servicename: 'Freight Transportation',
+                des: 'Efficient shipping solutions for all your cargo needs, ensuring timely delivery across the USA.',
+                icon: icons
+
+            },
+            {
+                servicename: 'Warehousing and Distribution',
+                des: 'Secure storage facilities and streamlined distribution services to optimize your supply chain management.',
+                icon: icons2
+
+            },
+            {
+                servicename: 'Last-Mile Delivery',
+                des: 'Reliable and flexible delivery options to reach your customers doorstep with precision and speed.',
+                icon: icons3
+            }
+        ]
+
     return (
         <div className='  '>
+         
             <div className='bg-banner   '>
                 <div className="overlay pb-20">
                     <div className='lg:p-20 p-10'>
@@ -12,7 +40,7 @@ const Banner = () => {
                             We’re Providing Best Services
                         </h6>
                         <h1 className='lg:text-[65px] lg:leading-[80px] text-[38px] leading-10 font-bold text-white font-[Akshar]  lg:w-[70%] lg:text-left text-center'>
-                            Worldwide  Shipping and Professional Solutions
+                            USA Logistics: Nationwide Shipping Experts
                         </h1>
                         <p className='lg:w-[60%] my-3 text-white text-justify'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur dolorum voluptas quam, maxime unde itaque earum magnam ab adipisci totam quibusdam, rem quae optio aperiam molestiae, facilis libero explicabo? Aut?</p>
                         <button className=" bg-blue-400 hover:bg-yellow-400   ml-[20%] button lg:ml-0">
@@ -25,38 +53,32 @@ const Banner = () => {
 
             </div>
 
-            {/* threre services name  */}
+
 
             <div className='w-[90%] mx-auto mb-10   '>
-                <div className=' grid lg:grid-cols-3 grid-cols-1 shadow-2xl  mt-[-10%] '>
-                    <div className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out lg:border-b-0 border-b-8 border-blue-900 ">
-                        <div className="py-16 px-10">
-                         <img src={iconimage} alt="" className="w-20 h-20 mr-4"  />
-                            <div>
-                                <h1 className="text-lg font-bold hover:text-blue-700 transition-colors duration-300">Service 1</h1>
-                                <p className="text-sm hover:text-blue-700 transition-colors duration-300">Description of Service 1</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out ">
-                        <div className="py-16 px-10">
-                         <img src={iconimage} alt="" className="w-20 h-20 mr-4"  />
-                            <div>
-                                <h1 className="text-lg font-bold hover:text-blue-700 transition-colors duration-300">Service 1</h1>
-                                <p className="text-sm hover:text-blue-700 transition-colors duration-300">Description of Service 1</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out ">
-                        <div className="py-16 px-10">
-                         <img src={iconimage} alt="" className="w-20 h-20 mr-4"  />
-                            <div>
-                                <h1 className="text-lg font-bold hover:text-blue-700 transition-colors duration-300">Service 1</h1>
-                                <p className="text-sm hover:text-blue-700 transition-colors duration-300">Description of Service 1</p>
-                            </div>
-                        </div>
-                    </div>
-             
+                <div className=' grid lg:grid-cols-3 grid-cols-1 shadow-2xl  mt-[-10%] text-justify '>
+                    {
+                        allservices.map((service, index) => {
+                            return (
+                                <div  key={index} className="bg-white hover:bg-[#FFCD06] transition duration-300 ease-in-out lg:border-b-0 border-b-8 border-blue-900 ">
+                                    <div className="py-16 px-10">
+                                        <img src={service.icon} alt="" className="w-10 h-10 mr-4" />
+                                        <div>
+                                            <h1 className="text-lg font-bold hover:text-blue-700 transition-colors duration-300">
+                                                {service.servicename}
+                                            </h1>
+                                            <p className="text-sm hover:text-blue-700 transition-colors duration-300">
+                                                {service.des}
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
+
+
 
                 </div>
             </div>
