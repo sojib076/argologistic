@@ -1,5 +1,7 @@
 import React from 'react';
 import leftimg from '../../../assets/left.jpg';
+import { FaTruckFast } from "react-icons/fa6";
+import { GiScooter } from "react-icons/gi";
 
 
 const Habout = () => {
@@ -37,20 +39,20 @@ const Habout = () => {
 
                     <div className='h-[66px] bg-white shadow-2xl'>
                         <div className='grid grid-cols-2  '>
-                            <div className="flex justify-center items-center p-3">
-                                <img src="https://freeiconshop.com/wp-content/uploads/edd/android-flat.png" alt="Icon" className="w-10 h-10 lg:mr-2" />
+                            <div className="flex justify-center items-center p-3 gap-5">
+                                <FaTruckFast className=" text-5xl lg:mr hover:animate-bounce transition " />
                                 <div>
-                                    <h1 className=" text-[#3E3F41] lg:text-[18px]  font-medium font-['Akshar'] ">We are the best</h1>
+                                    <h1 className=" text-[#3E3F41] lg:text-[18px]  
+                                    font-medium font-['Akshar'] ">We are the best</h1>
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center p-3">
-                                <img src="https://freeiconshop.com/wp-content/uploads/edd/android-flat.png" alt="Icon" className="w-10 h-10 lg:mr-2" />
+                            <div className="flex justify-center items-center p-3 gap-5">
+                                <GiScooter className=" text-5xl lg:mr hover:animate-bounce transition  " />
                                 <div>
-                                    <h1 className=" text-[#3E3F41] lg:text-[18px] font-medium font-['Akshar'] ">We are the best</h1>
+                                    <h1 className=" text-[#3E3F41] lg:text-[18px]
+                                      font-medium font-['Akshar'] ">We are the best</h1>
                                 </div>
                             </div>
-
-            
                         </div>
                     </div>
                 </div>

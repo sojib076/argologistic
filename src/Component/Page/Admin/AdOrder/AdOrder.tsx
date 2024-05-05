@@ -38,7 +38,7 @@ const AdOrder = () => {
 
         axios({
             method: 'post',
-            url: 'http://localhost:3000/api/v1/order/',
+            url: `${process.env.REACT_APP_API_URL}/order/`,
             data: Alldata,
         }).then((response) => {
             if (response) {

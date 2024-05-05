@@ -22,7 +22,7 @@ const Alladmin = () => {
     const [allproduct, setAllproduct] = useState<Product[]>([]);
 
     useEffect(() => {
-        axios.get<Product[]>('http://localhost:3000/api/v1/order/')
+        axios.get<Product[]>(`${process.env.REACT_APP_API_URL}/order/`)
             .then((response) => {
                 setAllproduct(response.data);
 
@@ -37,13 +37,13 @@ const Alladmin = () => {
 
     const handelsort = (sort: string) => {
         if (sort === 'Delivery' || sort === 'Cancel') {
-            axios.get<Product[]>('http://localhost:3000/api/v1/order/')
+            axios.get<Product[]>(`${process.env.REACT_APP_API_URL}/order/`)
                 .then((response) => {
                     const Delivered = response.data.filter((product) => product.status === sort)
                     setAllproduct(Delivered)
                 })
         } else {
-            axios.get<Product[]>('http://localhost:3000/api/v1/order/')
+            axios.get<Product[]>(`${process.env.REACT_APP_API_URL}/order/`)
                 .then((response) => {
                     setAllproduct(response.data);
                 })

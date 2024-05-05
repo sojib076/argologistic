@@ -43,7 +43,7 @@ const Details = () => {
         };
         axios({
             method: 'put',
-            url: `http://localhost:3000/api/v1/order/${signleloaderdata?._id}`,
+            url: `${process.env.REACT_APP_API_URL}/order/${signleloaderdata?._id}`,
             data: Alldata,
         }).then((response) => {
             Swal.fire({
@@ -72,7 +72,7 @@ const Details = () => {
             if (result.isConfirmed) {
                 axios({
                     method: 'delete',
-                    url: `http://localhost:3000/api/v1/order/${signleloaderdata?._id}`,
+                    url: `${process.env.REACT_APP_API_URL}/order/${signleloaderdata?._id}`,
                 }).then((response) => {
                     Swal.fire({
                         title: "Deleted!",

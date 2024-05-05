@@ -39,7 +39,7 @@ const routes=createBrowserRouter([
       {path: '/dashboard/adorder', element:<AdOrder/>},
       {
         path: '/dashboard/details/:id', 
-        loader :({params}) => fetch(`http://localhost:3000/api/v1/order/${params.id}`).then(res => res.json()), 
+        loader :({params}) => fetch(`${process.env.REACT_APP_API_URL}/order/${params.id}`).then(res => res.json()), 
         element:<Details/>
       }
 

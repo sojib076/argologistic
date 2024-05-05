@@ -12,7 +12,7 @@ const Tracking = () => {
     const id = e.target[0].value;
 
 
-    axios.get(`http://localhost:3000/api/v1/order/track/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/order/track/${id}`)
       .then((res) => {
 
         setTrackingNumber(res.data);

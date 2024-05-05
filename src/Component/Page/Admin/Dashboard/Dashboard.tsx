@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 const Dashboard = () => {
 
+
   type Product = {
     _id: string,
     SenderName: string,
@@ -25,26 +26,26 @@ const Dashboard = () => {
   const [singleOrder, setSingleOrder] = useState<Product>();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/v1/order/')
+    axios.get(`${process.env.REACT_APP_API_URL}/order/`)
       .then((response) => {
         const reversed = response.data.reverse();
-        console.log(reversed);
+        
         setAllproduct(reversed)
         
       })
   }, [singleOrder]) 
 
 
-  const handelSingleOrder = (productid: string)  => {
+  const handelSingleOrder = (productid: string):void  => {
    
-    axios.get<Product>(`http://localhost:3000/api/v1/order/${productid}`)
+    axios.get<Product>(`${process.env.REACT_APP_API_URL}/order/${productid}`)
       .then((response) => {
         const result = response.data;
         setSingleOrder(result)
       })
   }
 
-  const handelDelivery = (id: string, Status: string) => {
+  const handelDelivery = (id: string, Status: string):void => {
 
     if (Status === 'Cancel') {
 
@@ -58,7 +59,7 @@ const Dashboard = () => {
         confirmButtonText: 'Yes, Cancel it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          axios.patch(`http://localhost:3000/api/v1/order/${id}`,
+          axios.patch(`${process.env.REACT_APP_API_URL}/order/${id}`,
             { status: Status })
             .then((response) => {
               handelSingleOrder(id);
@@ -67,7 +68,7 @@ const Dashboard = () => {
       })
 
     } else {
-      axios.patch(`http://localhost:3000/api/v1/order/${id}`,
+      axios.patch(`${process.env.REACT_APP_API_URL}/order/${id}`,
         { status: Status })
         .then((response) => {
           handelSingleOrder(id);
@@ -76,7 +77,6 @@ const Dashboard = () => {
             title: `${Status} successfully`,
             showConfirmButton: false,
             timer: 1500
-
           })
         })
     }
@@ -199,7 +199,7 @@ const Dashboard = () => {
                 {
                   singleOrder.status === 'pending' &&
                   (<div onClick={() => handelDelivery(singleOrder._id, 'Shipped')} className=" hover:scale-90  ease-linear  transition  cursor-pointer lg:w-[90%]  text-center h-11 lg:px-6 py-3 bg-white rounded-[56px] shadow  mt-5 mx-auto">
-                    <button className="text-green-500  font-bold   "  > Order Processed</button>
+                    <button className="text-green-500  font-bold   "  > Order Shipped</button>
                   </div>)
                 }
                 {singleOrder.status === 'Shipped' &&
