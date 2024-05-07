@@ -30,7 +30,7 @@ const Habout = () => {
                         We Provide Logistics Services  Focused On Quality
                     </h1>
                     <p className='text-justify my-3 text-[#3E3F41] '>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    At Argo Logistic , we specialize in quality-focused logistics services. With a relentless dedication to excellence, we ensure every client receives top-tier service, setting new standards in the industry. From freight transportation to supply chain management, trust us for precision and professionalism in every aspect of logistics.
                     </p>
                     <button className="bg-yellow-400 hover:bg-blue-400  button mb-5">
                         Read More

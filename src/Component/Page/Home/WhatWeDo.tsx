@@ -56,7 +56,8 @@ const WhatWeDo = () => {
                     <h1 className='section-title text-center text-[#3E3F41]'>
                         Specialist Logistics Services
                     </h1>
-                    <p className="section-para lg:w-[70%] w-[90%] mx-auto  ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam architecto alias odio facilis dignissimos voluptate obcaecati fuga in eum esse molestiae modi pariatur distinctio delectus, quasi culpa. Odit, eos! Dolorem.</p>
+                    <p className="section-para lg:w-[70%] w-[90%] mx-auto pb-5  "> 
+                    We excel in Specialist Logistics Services. With expertise tailored to your needs, we offer unparalleled solutions that streamline operations, optimize efficiency, and ensure seamless delivery. Trust us to navigate the complexities of logistics with precision and dedication, providing bespoke services that exceed expectations."</p>
 
                     <div className='grid lg:grid-cols-3 grid-cols-1 gap-3 lg:gap-y-5'>
                         {

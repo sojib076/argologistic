@@ -68,5 +68,5 @@ z-index: 10;
 }
 
 .button{
-  @apply text-white font-bold w-40 h-10 rounded-md transition duration-300 ease-in-out font-[Akshar]  ;
+  @apply text-white font-bold px-10 h-10 rounded-md transition duration-300 ease-in-out font-[Akshar]  ;
 }

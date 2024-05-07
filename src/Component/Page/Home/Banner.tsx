@@ -10,10 +10,6 @@ import icons3 from '../../../assets/delivery.png';
 
 const Banner = () => {
     
-    
-
- 
-
     const allservices = [
         {
             servicename: 'Freight Transportation',
@@ -66,7 +62,7 @@ const Banner = () => {
                         allservices.map((service, index) => {
                             return (
                                 <div key={index} className="bg-white
-                                 hover:bg-[#FFCD06]  duration-300  transition  ease-in-out lg:border-b-0 border-b-8 border-blue-900 ">
+                                 hover:bg-[#FFCD06]  duration-300  transition  ease-in-out l ">
                                     <div className="py-16 px-10  ">
                                         <img src={service.icon} alt="" className="w-10 h-10 mr-4 my-5" />
                                         <div>
@@ -82,10 +78,6 @@ const Banner = () => {
                             )
                         })
                     }
-
-
-
-
                 </div>
             </div>
         </div>
