@@ -18,7 +18,7 @@ type Product =
 
 
 
-const Alladmin = () => {
+const Allorders = () => {
     const [allproduct, setAllproduct] = useState<Product[]>([]);
 
     useEffect(() => {
@@ -102,4 +102,4 @@ const Alladmin = () => {
     );
 };
 
-export default Alladmin;
+export default Allorders;

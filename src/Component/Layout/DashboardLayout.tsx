@@ -2,13 +2,16 @@ import React from 'react';
 import Header from '../Header/Header';
 import { Link, Outlet } from 'react-router-dom';
 import { FaHouse, FaUser } from 'react-icons/fa6';
-import { MdAddTask } from 'react-icons/md';
+import { MdAddTask, MdLibraryAdd } from 'react-icons/md';
 import { CiLogout } from 'react-icons/ci';
 
 
 
 const DashboardLayout = () => {
-
+ const handelLogout = () => {
+        localStorage.removeItem('userEmail');
+    
+ }
     return (
         <div>
             <Header />
@@ -20,12 +23,12 @@ const DashboardLayout = () => {
 
                         <Link to="/dashboard/" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition " > <FaHouse /> </Link>
 
-                        <Link to="/dashboard/admin" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <FaUser /> </Link>
+                        <Link to="/dashboard/orders" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <MdLibraryAdd/></Link>
 
                         <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <MdAddTask /> </Link>
 
-                        <Link to="/dashboard/adorder" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <CiLogout /></Link>
-                      
+                        <Link onClick={handelLogout} to="/" className="w-5 h-5  text-2xl hover:scale-125 ease-linear  transition  "> <CiLogout /></Link>
+
                     </div>
 
                 </div>

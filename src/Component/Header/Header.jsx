@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const userEmail = localStorage.getItem('userEmail');
+   
+  
 
   function toggleMenu() {
     setMenuOpen(!menuOpen);
@@ -56,7 +59,11 @@ const Header = () => {
             </li>
 
             <li className="mx-4 my-6 md:my-0">
-              <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/dashboard/adlogin" > Admin Login  </Link>
+              {
+                userEmail?<Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/dashboard/" > Dashboard  </Link>
+                   : <Link className="text-white text-xl  hover:text-cyan-500 duration-500 " to="/adlogin" > Admin Login  </Link>
+              }
+
             </li>
 
           </ul>
